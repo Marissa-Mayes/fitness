@@ -10,9 +10,9 @@ app.use(express.json());
 
 app.use(express.static("public"));
  app.use("/api",require("./routes/apiRoute.js"));
-// app.use(require("./routes/htmlRoutes.js"));
+ app.use(require("./routes/htmlRoutes.js"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userdb", { 
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", { 
     
 useNewUrlParser: true,
 useUnifiedTopology: true,
