@@ -16,5 +16,14 @@ Router.post('/workouts', (req,res)=>{
         res.json(sponse)
     }).catch(err=>{console.error(err)})
 })
+Router.put("/workouts/:id", ({
+body,params}, res) =>{
+    db.Workout.findByIdAndUpdate(params.id,
+        {$push: {exercise: body}},
+        {new: true, runValidators: true}
+    )
+    .then(data => res.json(data))
+    .catch(err => {console.error(err)})
+    });
 
 module.exports = Router
