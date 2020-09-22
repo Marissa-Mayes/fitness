@@ -1,29 +1,34 @@
-const express = require('express')
-const Router = express.Router()
 const db = require("../models");
 
-Router.get('/workouts', (req,res)=>{
-    console.log("WE HIT THE ROUTE")
-    db.Workout.find({}).then((sponse)=>{
-        console.log(sponse)
-        res.json(sponse)
+
+module.exports= function(app) {
+
+app.get("/api/workouts", (req,res)=>{
+    console.log("WHERE AM I")
+    db.Workout.find({}).then((workoutData)=>{
+        //console.log(JSON.stringify(workoutData))
+        res.json(workoutData)
     }).catch(err=>{console.error(err)})
 })
-Router.post('/workouts', (req,res)=>{
+app.post("/api/workouts", ({body},res)=>{
     console.log("WE HIT THE ROUTE")
-    db.Workout.create({...req.body}).then((sponse)=>{
-        console.log(sponse)
-        res.json(sponse)
-    }).catch(err=>{console.error(err)})
+    db.Workout.create(body)
+        .then((data)=>{
+        console.log(data)
+        res.json(data);
+    })
+    .catch(err=>{console.error(err)
 })
-Router.put("/workouts/:id", ({
-body,params}, res) =>{
-    db.Workout.findByIdAndUpdate(params.id,
-        {$push: {exercise: body}},
-        {new: true, runValidators: true}
+app.put("/api/workouts/:id", (req,res) =>{
+const_id= req.params.id;
+const body= req.body
+    db.Workout.findByIdAndUpdate(
+        {_id},
+        {$push:
+         {exercise: body}},
     )
     .then(data => res.json(data))
     .catch(err => {console.error(err)})
     });
+})};
 
-module.exports = Router

@@ -6,16 +6,20 @@ const WorkoutSchema = new Schema({
   day: {
     type: Date,
     default: Date.now(),
-    required: "The Date must be a Date is Required"
   },
 exercise: {
   type: Array,
-  name: Array,
-  Duration: Number,
-  reps: Number,
-  sets: Number
+  default: [],
 }
-});
+//viturals used to store workout duration combined//
+}, { toJSON: { virtuals: true } });
+
+WorkoutSchema.virtual("totalDuration").get(function(){
+  console.log("WHERE WILL THIS SHOW UP?",this.exercise)
+  let totes= this.exercise.reduce((accum, current)=>{return accum+current.duration}, 0)
+  console.log(totes)
+  return totes
+})
 const Workout = mongoose.model("Workout", WorkoutSchema);
 
 module.exports = Workout;

@@ -1,13 +1,22 @@
 {
 	"folders": [
 		{
-			"path": "../../../.."
+			"path": "../../.."
 		},
 		{
-			"path": "../../../../../nu-eva-fsf-pt-04-2020-u-c/17-NoSQL/01-Activities/11-Stu-Mongoose-Schema"
+			"path": "../../../../nu-eva-fsf-pt-04-2020-u-c/19-React/02-Homework"
 		},
 		{
-			"path": "../../../../../nu-eva-fsf-pt-04-2020-u-c/17-NoSQL/02-Homework"
+			"path": "../../../../nu-eva-fsf-pt-04-2020-u-c/19-React/01-Activities/07-Stu_JSXVariables"
+		},
+		{
+			"path": "../../../../nu-eva-fsf-pt-04-2020-u-c/19-React/01-Activities/05-Stu_HelloBootstrap"
+		},
+		{
+			"path": "../../../../nu-eva-fsf-pt-04-2020-u-c/19-React/01-Activities/03-Stu_HelloDiv"
+		},
+		{
+			"path": "../../../../../practice-app"
 		}
 	],
 	"settings": {}
