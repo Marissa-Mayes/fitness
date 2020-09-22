@@ -13,4 +13,8 @@ app.get("/stats",(req,res)=>{
     console.log("exercise stats")
     res.sendFile(path.join(__dirname,"../public/stats.html"))
 })
+app.get("/range",(req,res)=>{
+    console.log("exercise range")
+    res.sendFile(path.join(__dirname,"../public/stats.html"))
+})
 }

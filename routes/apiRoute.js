@@ -19,6 +19,8 @@ app.post("/api/workouts", ({body},res)=>{
     })
     .catch(err=>{console.error(err)
 })
+
+
 app.put("/api/workouts/:id", (req,res) =>{
 const_id= req.params.id;
 const body= req.body
@@ -30,5 +32,15 @@ const body= req.body
     .then(data => res.json(data))
     .catch(err => {console.error(err)})
     });
-})};
 
+app.get("/api/workouts/range", (req,res)=>{
+    console.log("summary")
+    db.Workout.find({}).then((summary)=>{
+        //console.log(JSON.stringify(workoutData))
+        res.json(summary);
+
+    })
+    .catch(err=>{console.error(err)});
+    });
+});
+}
