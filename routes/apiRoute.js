@@ -13,16 +13,16 @@ app.get("/api/workouts", (req,res)=>{
 app.post("/api/workouts", ({body},res)=>{
     console.log("WE HIT THE ROUTE")
     db.Workout.create(body)
-        .then((data)=>{
-        console.log(data)
-        res.json(data);
+        .then((newData)=>{
+        console.log(newData)
+        res.json(newData);
     })
     .catch(err=>{console.error(err)
 })
 
 
 app.put("/api/workouts/:id", (req,res) =>{
-const_id= req.params.id;
+const _id= req.params.id;
 const body= req.body
     db.Workout.findByIdAndUpdate(
         {_id},
