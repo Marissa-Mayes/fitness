@@ -35,7 +35,7 @@ const body= req.body
 
 app.get("/api/workouts/range", (req,res)=>{
     console.log("summary")
-    db.Workout.find({}).then((summary)=>{
+    db.Workout.find({range}).then((summary)=>{
         //console.log(JSON.stringify(workoutData))
         res.json(summary);
 

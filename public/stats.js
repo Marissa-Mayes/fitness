@@ -5,7 +5,8 @@ fetch("/api/workouts/range")
     return response.json();
   })
   .then(data => {
-    populateChart(data);
+    populateChart(data)
+    console.log(data,"data present");
   });
 
 
@@ -188,7 +189,7 @@ function populateChart(data) {
 
 function duration(data) {
   let durations = [];
-
+console.log (workout)
   data.forEach(workout => {
     workout.exercises.forEach(exercise => {
       durations.push(exercise.duration);
